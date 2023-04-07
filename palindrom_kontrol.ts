@@ -2,7 +2,7 @@ interface linkedListItem {
   val: number;
   next?: linkedListItem;
 }
-
+//array olarak sira ile degerleri donduren fonksiyon
 function linkedListArray(head: linkedListItem) {
   const array: any[] = [];
   while (head) {
@@ -13,8 +13,12 @@ function linkedListArray(head: linkedListItem) {
   return array;
 }
 
+//palindrom olup olmadigini kontrol eden fonksiyon
 function isPalindrome(head: linkedListItem) {
   const array = linkedListArray(head);
+
+  //en bastaki ve ensondaki element ile baslayip birer birer her iki indeksi azaltarak karsilastirma yapilir
+  //esitsizlik durumunda false donulur
 
   for (let left = 0, right = array.length - 1; left <= right; left++, right--) {
     if (array[left] !== array[right]) {
@@ -43,4 +47,4 @@ let item4: linkedListItem = {
   next: item3,
 };
 
-console.log(isPalindrome(item4));
+console.log("sonuc : ", isPalindrome(item4));
